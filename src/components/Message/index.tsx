@@ -26,6 +26,7 @@ window.onShow = () =>{
         messageContent
     })
 
+
     setTimeout(()=>{
         const item  = res.find(item=>item.messageContent === messageContent)!
         item.root.unmount()
