@@ -28,7 +28,22 @@ function App() {
             {/*{*/}
             {/*    flag ? JSON.stringify(obj, null, 2) : '测试中'*/}
             {/*}*/}
-            <Card />
+            <Card
+                title={'Hello Vue'}
+                num={1}
+                el={<div>12313</div>}
+                isFlag={true}
+                empty={null}
+                obj={{a:123,b:'abc'}}
+                arr={[1,2,3,4,5]}
+                fn={(params:string) => console.log(params)}
+                unde={undefined}
+            />
+            <Card>
+                <div>
+                    <b>我是内容</b>
+                </div>
+            </Card>
             <button onClick={()=>window.onShow()}>点击</button>
         </>
     )
