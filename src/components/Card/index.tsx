@@ -11,6 +11,8 @@ interface Props {
     arr?: number[];
     fn?: (params:string) => void;
     unde?: undefined;
+    onIncrement?: (delta:number) => void;
+    callBack?: (param: string) => void;
 }
 
 // export default function Card(props:Props) {
@@ -34,7 +36,7 @@ interface Props {
 //     )
 // }
 
-const Card: React.FC<Props> = ({title='标题',children}) => {
+const Card: React.FC<Props> = ({title='标题',children,onIncrement=()=>{},callBack=()=>{}}) => {
         return (
         <>
             <div className="card">
@@ -46,8 +48,8 @@ const Card: React.FC<Props> = ({title='标题',children}) => {
                     { children }
                 </main>
                 <footer>
-                    <button>确定</button>
-                    <button>取消</button>
+                    <button onClick={()=>onIncrement(2)}>确定</button>
+                    <button onClick={()=>callBack('取消')}>取消</button>
                 </footer>
             </div>
         </>
