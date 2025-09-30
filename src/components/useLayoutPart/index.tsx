@@ -1,4 +1,4 @@
-import React, {useEffect, useLayoutEffect, useRef, useState} from "react";
+import {useEffect, useLayoutEffect, useRef, useState} from "react";
 
 const UseLayoutPart = () => {
     const [ count,setCount ] = useState(0)
@@ -48,7 +48,12 @@ const UseLayoutPart = () => {
         setHeight(open ? fullHeight : 0);
     }, [open]); // 开关变化就重新测量
 
-    return(
+    // const [bigArr, setBigArr] = useState<number[]>([]);
+    // useLayoutEffect(() => {
+    //     const arr = Array.from({ length: 1e6 }, (_, i) => i * i);
+    //     setBigArr(arr);
+    // }, []);
+    return (
         <>
             <h2>
                 ----------useLayoutEffect的用法--------
@@ -58,24 +63,24 @@ const UseLayoutPart = () => {
                 {count}
                 {/*{Array.from({length:count},(_,index) => <div key={index}>{index}</div>)}*/}
             </div>
-            <div onScroll={scrollHandle} id="container" style={{height:'400px',overflow:'auto'}}>
+            <div onScroll={scrollHandle} id="container" style={{height: '400px', overflow: 'auto'}}>
                 {Array(1000)
-                .fill(0)
-                    .map((_,index)=>{
+                    .fill(0)
+                    .map((_, index) => {
                         return <div key={index}>{index}</div>;
                     })
                 }
             </div>
             <h2>---------tooltip 自动定位（防止跳动）-------</h2>
-            <button ref={btnRef} style={{marginLeft:200}}>悬停测试</button>
+            <button ref={btnRef} style={{marginLeft: 200}}>悬停测试</button>
             <div
                 style={{
-                    position:'absolute',
-                    top:btnRef.current?.offsetTop,
+                    position: 'absolute',
+                    top: btnRef.current?.offsetTop,
                     left,
-                    width:150,
-                    background:'#333',
-                    color:'#fff'
+                    width: 150,
+                    background: '#333',
+                    color: '#fff'
                 }}
             >
                 提示文字
@@ -95,6 +100,8 @@ const UseLayoutPart = () => {
                     <p>高度不确定</p>
                 </div>
             </div>
+            <h2>测试页面卡顿</h2>
+            {/*{bigArr.map((item, index) => <div key={index}>{item}</div>)}*/}
         </>
     )
 }

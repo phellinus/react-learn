@@ -7,6 +7,8 @@ import Correspondence from "./components/Correspondence";
 import UseStatePart from "./components/useStatePart";
 import UseEffectPart from "./components/useEffectPart";
 import UseLayoutPart from "./components/useLayoutPart";
+import UseReducerPart from "./components/useReducerPart";
+import FormPart from "./components/useReducerPart/FormPart.tsx";
 function App() {
     // const test = 'react hello'
     // const obj  = { a:123,b:'abc' }
@@ -68,11 +70,13 @@ function App() {
 
             {/*<Input ref={ref} label="用户名" placeholder="请输入" />*/}
             {/*<button onClick={focus}>聚焦</button>*/}
-            <Parent></Parent>
-            <Correspondence></Correspondence>
-            <UseStatePart></UseStatePart>
-            <UseEffectPart></UseEffectPart>
-            <UseLayoutPart></UseLayoutPart>
+            {/*<Parent></Parent>*/}
+            {/*<Correspondence></Correspondence>*/}
+            {/*<UseStatePart></UseStatePart>*/}
+            {/*<UseEffectPart></UseEffectPart>*/}
+            {/*<UseLayoutPart></UseLayoutPart>*/}
+            <UseReducerPart></UseReducerPart>
+            <FormPart></FormPart>
         </>
     )
 }
