@@ -3,15 +3,17 @@ import React, {useEffect, useReducer} from "react";
 interface FormState {
     name: string;
     age: number;
-    errors: { name?: string; age?: string }
+    errors: { name?: string; age?: string },
+    submitted:boolean;
 }
 
 type FormAction =
     | { type: 'setName'; payload: string }
     | { type: 'setAge'; payload: string }
-    | { type: 'validate' };
+    | { type: 'validate' }
+    | { type: 'resetSubmitted' }
 
-const initialState: FormState = {name: '', age: 0, errors: {}}
+const initialState: FormState = {name: '', age: 0, errors: {},submitted:false}
 
 const formReducer = (state: FormState, action: FormAction) => {
     switch (action.type) {
@@ -23,11 +25,13 @@ const formReducer = (state: FormState, action: FormAction) => {
         }
         case 'validate': {
             const errors: FormState['errors'] = {};
-            console.log(state.name,state.age)
-            if (!state.name) errors.name = '必填';
+            if (!state.name.trim()) errors.name = '必填';
             if (state.age < 18) errors.age = '必须≥18';
-            return {...state, errors};
+
+            return { ...state, errors, submitted: true };
         }
+        case 'resetSubmitted':
+            return { ...state, submitted: false };
         default:
             throw new Error()
     }
@@ -40,9 +44,11 @@ const FormPart = () => {
         dispatch({ type:'validate' });
     }
     useEffect(() => {
-        if (state.errors.name || state.errors.age) return; // 还有错
-        if (state.name || state.age) alert('提交成功');    // 真正无错
-    }, [state.errors, state.name, state.age]);
+        if (!state.submitted) return;
+        if (state.errors.name || state.errors.age) return;
+        alert('提交成功');
+        dispatch({ type: 'resetSubmitted' });
+    }, [state.errors, state.submitted]);
 
     return(
         <>
