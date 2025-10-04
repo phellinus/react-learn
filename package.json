@@ -10,6 +10,9 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@types/node": "^24.6.2",
+    "antd": "^5.27.4",
+    "pnpm": "^10.18.0",
     "react": "^19.1.1",
     "react-dom": "^19.1.1"
   },

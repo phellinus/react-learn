@@ -11,7 +11,7 @@ const viteMockServer = (): Plugin => {
             // 1. 只匹配路径
             server.middlewares.use('/api/mock/list', (req, res) => {
                 // 2. 解析 query
-                const { query } = url.parse(req.originalUrl, true);
+                const { query } = url.parse(req.originalUrl||'', true);
                 const key = query.key || 'default'; // 给个兜底值
 
                 res.setHeader('Content-Type', 'application/json');

@@ -11,6 +11,7 @@ import UseReducerPart from "./components/useReducerPart";
 import FormPart from "./components/useReducerPart/FormPart.tsx";
 import ShoppingCart from "./components/useReducerPart/shoppingCar.tsx";
 import UseSyncExternalPart from "./components/useSyncExternal";
+import UseTransitionPart from "./components/useTransitionPart";
 function App() {
     // const test = 'react hello'
     // const obj  = { a:123,b:'abc' }
@@ -81,6 +82,7 @@ function App() {
             <FormPart></FormPart>
             <ShoppingCart></ShoppingCart>
             <UseSyncExternalPart></UseSyncExternalPart>
+            <UseTransitionPart></UseTransitionPart>
         </>
     )
 }
