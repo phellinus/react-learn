@@ -14,6 +14,7 @@ import UseSyncExternalPart from "./components/useSyncExternal";
 import UseTransitionPart from "./components/useTransitionPart";
 import UseDeferredValuePart from "./components/useDeferredValuePart";
 import UseRefPart from "./components/useRefPart";
+import UseImperativePart from "./components/useImperativePart";
 function App() {
     // const test = 'react hello'
     // const obj  = { a:123,b:'abc' }
@@ -87,6 +88,8 @@ function App() {
             <UseTransitionPart></UseTransitionPart>
             <UseDeferredValuePart></UseDeferredValuePart>
             <UseRefPart></UseRefPart>
+            <br />
+            <UseImperativePart></UseImperativePart>
         </>
     )
 }
