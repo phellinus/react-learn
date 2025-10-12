@@ -6,12 +6,16 @@ export type CounterHandle = {
 
 const Counter = forwardRef<CounterHandle>((_, ref) => {
     const [count,setCount ] = useState(0);
-    useImperativeHandle(ref,()=>({
-        //捕获这个count
-        logCount:()=>{
-            alert("count=>"+count)
+    useImperativeHandle(ref,()=>{
+        console.log("加载了")
+        return {
+            //捕获这个count
+            logCount: () => {
+                alert("count=>"+count)
+                //console.log('count =', count);
+            }
         }
-    }))
+    },[count])
     return (
         <>
             <p>{count}</p>

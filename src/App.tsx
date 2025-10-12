@@ -15,6 +15,8 @@ import UseTransitionPart from "./components/useTransitionPart";
 import UseDeferredValuePart from "./components/useDeferredValuePart";
 import UseRefPart from "./components/useRefPart";
 import UseImperativePart from "./components/useImperativePart";
+import UseContextPart from "./components/useContextPart";
+import {ThemeProvider} from "./components/useContextPart/theme-provider.tsx";
 function App() {
     // const test = 'react hello'
     // const obj  = { a:123,b:'abc' }
@@ -90,6 +92,9 @@ function App() {
             <UseRefPart></UseRefPart>
             <br />
             <UseImperativePart></UseImperativePart>
+            <ThemeProvider>
+                <UseContextPart></UseContextPart>
+            </ThemeProvider>
         </>
     )
 }
