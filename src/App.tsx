@@ -1,4 +1,4 @@
-import './App.css'
+import './App.css';
 // import Card from "./components/Card";
 // import Input from './components/Input'
 // import {useRef, useState} from "react";
@@ -7,16 +7,18 @@ import './App.css'
 // import UseStatePart from "./components/useStatePart";
 // import UseEffectPart from "./components/useEffectPart";
 // import UseLayoutPart from "./components/useLayoutPart";
-import UseReducerPart from "./components/useReducerPart";
-import FormPart from "./components/useReducerPart/FormPart.tsx";
-import ShoppingCart from "./components/useReducerPart/shoppingCar.tsx";
-import UseSyncExternalPart from "./components/useSyncExternal";
-import UseTransitionPart from "./components/useTransitionPart";
-import UseDeferredValuePart from "./components/useDeferredValuePart";
-import UseRefPart from "./components/useRefPart";
-import UseImperativePart from "./components/useImperativePart";
-import UseContextPart from "./components/useContextPart";
-import {ThemeProvider} from "./components/useContextPart/theme-provider.tsx";
+import UseReducerPart from './components/useReducerPart';
+import FormPart from './components/useReducerPart/FormPart.tsx';
+import ShoppingCart from './components/useReducerPart/shoppingCar.tsx';
+import UseSyncExternalPart from './components/useSyncExternal';
+import UseTransitionPart from './components/useTransitionPart';
+import UseDeferredValuePart from './components/useDeferredValuePart';
+import UseRefPart from './components/useRefPart';
+import UseImperativePart from './components/useImperativePart';
+import UseContextPart from './components/useContextPart';
+import { ThemeProvider } from './components/useContextPart/theme-provider.tsx';
+import { AuthProvider } from './components/useContextPart/auth-context.tsx';
+import UseAuthPart from './components/useContextPart/useAuthPart.tsx';
 function App() {
     // const test = 'react hello'
     // const obj  = { a:123,b:'abc' }
@@ -95,8 +97,11 @@ function App() {
             <ThemeProvider>
                 <UseContextPart></UseContextPart>
             </ThemeProvider>
+            <AuthProvider>
+                <UseAuthPart></UseAuthPart>
+            </AuthProvider>
         </>
-    )
+    );
 }
 
-export default App
+export default App;

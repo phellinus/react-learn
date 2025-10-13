@@ -1,17 +1,14 @@
-import {createContext, type Dispatch, type ReactNode, useContext, useReducer} from "react";
+import { createContext, type Dispatch, type ReactNode, useContext, useReducer } from 'react';
 
 export type User = {
     id: string;
     name: string;
-} | null
+} | null;
 
 type State = { user: User; loading: boolean };
-type Action =
-    | { type: 'login'; payload: User }
-    | { type: 'logout' }
-    | { type: 'loading'; payload: boolean };
+type Action = { type: 'login'; payload: User } | { type: 'logout' } | { type: 'loading'; payload: boolean };
 
-function reducer(state: State, action: Action):State {
+function reducer(state: State, action: Action): State {
     switch (action.type) {
         case 'login':
             return { ...state, user: action.payload, loading: false };
@@ -29,17 +26,17 @@ type AuthContextValue = {
     dispatch: Dispatch<Action>;
 };
 
-const AuthContext = createContext<AuthContextValue|undefined>(undefined);
+const AuthContext = createContext<AuthContextValue | undefined>(undefined);
 
-export function AuthProvider({children}:{children:ReactNode}){
-    const [state, dispatch] = useReducer(reducer, {user: null, loading: false});
-    const value = { state,dispatch };
+export function AuthProvider({ children }: { children: ReactNode }) {
+    const [state, dispatch] = useReducer(reducer, { user: null, loading: false });
+    const value = { state, dispatch };
     return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>;
 }
 
-export function useAuth(){
+export function useAuth() {
     const ctx = useContext(AuthContext);
-    if (!ctx){
+    if (!ctx) {
         throw new Error('useAuth must be used within a AuthProvider');
     }
     return ctx;
