@@ -19,6 +19,7 @@ import UseContextPart from './components/useContextPart';
 import { ThemeProvider } from './components/useContextPart/theme-provider.tsx';
 import { AuthProvider } from './components/useContextPart/auth-context.tsx';
 import UseAuthPart from './components/useContextPart/useAuthPart.tsx';
+import { useNavigate } from 'react-router-dom';
 function App() {
     // const test = 'react hello'
     // const obj  = { a:123,b:'abc' }
@@ -40,6 +41,11 @@ function App() {
     // const fn = (params: string)=>{
     //     console.log('调用了父组件的参数',params)
     // }
+    const navigation = useNavigate();
+    //跳转到react页面
+    const handleToReact = () => {
+        navigation('/react');
+    };
     return (
         <>
             {/*<div>*/}
@@ -85,6 +91,7 @@ function App() {
             {/*<UseStatePart></UseStatePart>*/}
             {/*<UseEffectPart></UseEffectPart>*/}
             {/*<UseLayoutPart></UseLayoutPart>*/}
+            <button onClick={handleToReact}>跳转到react页面</button>
             <UseReducerPart></UseReducerPart>
             <FormPart></FormPart>
             <ShoppingCart></ShoppingCart>
